@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Okumu Jared | Electrical Supervisor & Web Developer</title>
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS — Edit colours here only
+    ============================================ */
+    :root {
+      --navy:       #0B1D3A;   /* deep navy background      */
+      --navy-mid:   #112447;   /* slightly lighter navy      */
+      --gold:       #D4A017;   /* amber/gold accent          */
+      --gold-light: #F0C040;   /* hover gold                 */
+      --white:      #FFFFFF;
+      --grey-light: #C8D6E5;   /* muted text on dark bg      */
+      --grey-line:  #1E3356;   /* subtle divider colour      */
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================
+       NAVIGATION BAR
+    ============================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background-color: rgba(11, 29, 58, 0.95);
+      border-bottom: 1px solid var(--grey-line);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    /* Logo / name in nav */
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--grey-light);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Hamburger (mobile) */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      min-height: 100vh;
+      padding: 100px 5% 80px;          /* top padding clears fixed nav */
+      display: flex;
+      align-items: center;
+      background:
+        /* subtle diagonal grid — feels like engineering graph paper */
+        linear-gradient(rgba(212,160,23,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,160,23,0.04) 1px, transparent 1px),
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      background-size: 40px 40px, 40px 40px, 100% 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative power-bolt shape — the page's signature element */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,160,23,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    /* UN badge — credibility tag above the headline */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212,160,23,0.12);
+      border: 1px solid rgba(212,160,23,0.35);
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '⚡';
+      font-size: 0.9rem;
+    }
+
+    /* Main headline */
+    .hero-name {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero-name .gold { color: var(--gold); }
+
+    /* Sub-title */
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 400;
+      color: var(--grey-light);
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    /* Gold divider line */
+    .hero-divider {
+      width: 56px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 28px;
+      border-radius: 2px;
+    }
+
+    /* Summary paragraph */
+    .hero-summary {
+      font-size: 1rem;
+      color: var(--grey-light);
+      max-width: 620px;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    /* Stat badges row */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+
+    .stat {
+      background: var(--navy-mid);
+      border: 1px solid var(--grey-line);
+      border-radius: 6px;
+      padding: 14px 20px;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--grey-light);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* CTA buttons */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 30px;
+      border-radius: 5px;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--grey-light);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 30px;
+      border-radius: 5px;
+      border: 1px solid var(--grey-line);
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ============================================
+       SERVICES STRIP (below hero)
+    ============================================ */
+    .services-strip {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--grey-line);
+      border-bottom: 1px solid var(--grey-line);
+      padding: 50px 5%;
+    }
+
+    .services-strip h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .services-strip .section-sub {
+      color: var(--grey-light);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--navy);
+      border: 1px solid var(--grey-line);
+      border-radius: 8px;
+      padding: 24px 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.83rem;
+      color: var(--grey-light);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       FOOTER (simple placeholder)
+    ============================================ */
+    footer {
+      padding: 30px 5%;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--grey-light);
+      border-top: 1px solid var(--grey-line);
+    }
+
+    footer a { color: var(--gold); }
+
+    /* ============================================
+       RESPONSIVE — MOBILE
+    ============================================ */
+    @media (max-width: 700px) {
+
+      .nav-links { display: none; flex-direction: column; }
+      .nav-links.open { display: flex; position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--navy); padding: 20px 5%; border-bottom: 1px solid var(--grey-line); }
+      .nav-toggle { display: flex; }
+
+      .hero { padding: 90px 5% 60px; }
+
+      .hero-stats { gap: 10px; }
+      .stat { min-width: 100px; padding: 10px 14px; }
+
+      .hero-cta { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+  ============================================ -->
+  <nav>
+    <div class="nav-logo">Okumu <span>Jared</span></div>
+
+    <!-- Desktop links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#store">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+  ============================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <!-- Credibility badge -->
+      <div class="hero-badge">
+        UNMISS · United Nations Mission in South Sudan
+      </div>
+
+      <!-- Name headline -->
+      <h1 class="hero-name">
+        Okumu <span class="gold">Jared</span>
+      </h1>
+
+      <!-- Title line -->
+      <p class="hero-title">
+        Electrical Supervisor &amp; Web Developer — serving engineering firms, solar installers, generator companies &amp; NGOs.
+      </p>
+
+      <!-- Gold divider -->
+      <div class="hero-divider"></div>
+
+      <!-- Short bio -->
+      <p class="hero-summary">
+        11+ years of field experience in diesel generators, solar PV systems, HV/LV power networks and industrial electrical infrastructure. Now I help technical and engineering businesses build credible, professional websites that win clients.
+      </p>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">11+</span>
+          <span class="stat-label">Years Field Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">15×</span>
+          <span class="stat-label">500 kVA Generators</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100kW</span>
+          <span class="stat-label">Solar PV System</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">14</span>
+          <span class="stat-label">Technicians Supervised</span>
+        </div>
+      </div>
+
+      <!-- Call-to-action buttons -->
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Hire Me — Let's Talk</a>
+        <a href="#services" class="btn-secondary">See My Services</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       SERVICES STRIP
+  ============================================ -->
+  <section class="services-strip" id="services">
+    <h2>What I Can Do For Your Business</h2>
+    <p class="section-sub">Engineering expertise meets professional web development</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>Business Websites</h3>
+        <p>Professional websites for engineering firms, generator companies, solar installers and NGOs. From KES 15,000.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <h3>Electrical Consulting</h3>
+        <p>1-hour technical advice sessions — generator sizing, solar PV design, power audits. Via Calendly. KES 2,000–5,000.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📄</span>
+        <h3>Technical PDF Guides</h3>
+        <p>Generator maintenance checklists, solar installation guides, safety audit templates. Download instantly.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🔧</span>
+        <h3>Power Systems Design</h3>
+        <p>HV/LV distribution networks, diesel generator commissioning, hybrid solar-PV systems. International field-tested expertise.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer>
+    <p>© 2026 Okumu Jared &nbsp;|&nbsp;
+      <a href="mailto:okumujaro@gmail.com">okumujaro@gmail.com</a> &nbsp;|&nbsp;
+      +254 790 475 905 &nbsp;|&nbsp; Nairobi, Kenya
+    </p>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT — Mobile nav toggle only
+  ============================================ -->
+  <script>
+    // Toggle mobile nav open/close
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+
+    // Close mobile nav when a link is clicked
+    links.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => links.classList.remove('open'));
+    });
+  </script>
+
+</body>
+</html>
