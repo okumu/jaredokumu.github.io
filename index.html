@@ -14,13 +14,13 @@
        DESIGN TOKENS — Edit colours here only
     ============================================ */
     :root {
-      --navy:       #0B1D3A;   /* deep navy background      */
-      --navy-mid:   #112447;   /* slightly lighter navy      */
-      --gold:       #D4A017;   /* amber/gold accent          */
-      --gold-light: #F0C040;   /* hover gold                 */
+      --navy:       #0B1D3A;
+      --navy-mid:   #112447;
+      --gold:       #D4A017;
+      --gold-light: #F0C040;
       --white:      #FFFFFF;
-      --grey-light: #C8D6E5;   /* muted text on dark bg      */
-      --grey-line:  #1E3356;   /* subtle divider colour      */
+      --grey-light: #C8D6E5;
+      --grey-line:  #1E3356;
     }
 
     /* ============================================
@@ -37,6 +37,41 @@
 
     a { color: inherit; text-decoration: none; }
 
+    /* Shared section padding */
+    .section { padding: 80px 5%; }
+
+    /* Shared section heading style */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      color: var(--grey-light);
+      font-size: 0.95rem;
+      margin-bottom: 48px;
+      max-width: 580px;
+    }
+
+    .gold-bar {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
     /* ============================================
        NAVIGATION BAR
     ============================================ */
@@ -44,7 +79,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background-color: rgba(11, 29, 58, 0.95);
+      background-color: rgba(11, 29, 58, 0.97);
       border-bottom: 1px solid var(--grey-line);
       padding: 0 5%;
       display: flex;
@@ -53,18 +88,14 @@
       height: 64px;
     }
 
-    /* Logo / name in nav */
     .nav-logo {
       font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 0.03em;
     }
 
-    .nav-logo span {
-      color: var(--gold);
-    }
+    .nav-logo span { color: var(--gold); }
 
-    /* Nav links */
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -80,11 +111,8 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover {
-      color: var(--gold);
-    }
+    .nav-links a:hover { color: var(--gold); }
 
-    /* Hamburger (mobile) */
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -101,7 +129,6 @@
       height: 2px;
       background: var(--white);
       border-radius: 2px;
-      transition: 0.3s;
     }
 
     /* ============================================
@@ -109,11 +136,10 @@
     ============================================ */
     .hero {
       min-height: 100vh;
-      padding: 100px 5% 80px;          /* top padding clears fixed nav */
+      padding: 100px 5% 80px;
       display: flex;
       align-items: center;
       background:
-        /* subtle diagonal grid — feels like engineering graph paper */
         linear-gradient(rgba(212,160,23,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(212,160,23,0.04) 1px, transparent 1px),
         linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
@@ -122,7 +148,6 @@
       overflow: hidden;
     }
 
-    /* Decorative power-bolt shape — the page's signature element */
     .hero::before {
       content: '';
       position: absolute;
@@ -133,12 +158,8 @@
       pointer-events: none;
     }
 
-    .hero-inner {
-      max-width: 900px;
-      width: 100%;
-    }
+    .hero-inner { max-width: 900px; width: 100%; }
 
-    /* UN badge — credibility tag above the headline */
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -155,12 +176,8 @@
       margin-bottom: 28px;
     }
 
-    .hero-badge::before {
-      content: '⚡';
-      font-size: 0.9rem;
-    }
+    .hero-badge::before { content: '⚡'; font-size: 0.9rem; }
 
-    /* Main headline */
     .hero-name {
       font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 800;
@@ -171,7 +188,6 @@
 
     .hero-name .gold { color: var(--gold); }
 
-    /* Sub-title */
     .hero-title {
       font-size: clamp(1rem, 2.5vw, 1.35rem);
       font-weight: 400;
@@ -180,25 +196,20 @@
       max-width: 620px;
     }
 
-    /* Gold divider line */
     .hero-divider {
-      width: 56px;
-      height: 3px;
+      width: 56px; height: 3px;
       background: var(--gold);
       margin-bottom: 28px;
       border-radius: 2px;
     }
 
-    /* Summary paragraph */
     .hero-summary {
       font-size: 1rem;
       color: var(--grey-light);
       max-width: 620px;
       margin-bottom: 40px;
-      font-weight: 400;
     }
 
-    /* Stat badges row */
     .hero-stats {
       display: flex;
       flex-wrap: wrap;
@@ -232,12 +243,7 @@
       display: block;
     }
 
-    /* CTA buttons */
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
 
     .btn-primary {
       background: var(--gold);
@@ -251,10 +257,7 @@
       display: inline-block;
     }
 
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
 
     .btn-secondary {
       background: transparent;
@@ -269,75 +272,308 @@
       display: inline-block;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--gold);
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ============================================
+       ABOUT SECTION
+    ============================================ */
+    .about {
+      background: var(--navy);
+      padding: 90px 5%;
+      border-top: 1px solid var(--grey-line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 60px;
+      align-items: start;
+      max-width: 1100px;
+    }
+
+    /* Left column — photo + quick facts */
+    .about-left {}
+
+    .about-photo {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 3/4;
+      background: var(--navy-mid);
+      border: 2px dashed var(--grey-line);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      color: var(--grey-light);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .about-photo .photo-icon { font-size: 3rem; }
+
+    /* Quick fact pills */
+    .about-facts { display: flex; flex-direction: column; gap: 10px; }
+
+    .fact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    .fact-icon {
+      width: 32px; height: 32px;
+      background: rgba(212,160,23,0.12);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .fact-text { color: var(--grey-light); }
+    .fact-text strong { color: var(--white); display: block; font-size: 0.82rem; }
+
+    /* Right column — story + experience timeline */
+    .about-right {}
+
+    .about-story {
+      font-size: 0.98rem;
+      color: var(--grey-light);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .about-story p { margin-bottom: 16px; }
+    .about-story strong { color: var(--white); }
+
+    /* Experience timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+
+    /* Vertical line connecting timeline items */
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 107px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      background: var(--grey-line);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--gold);
+      text-align: right;
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+
+    .timeline-dot {
+      width: 12px; height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute;
+      left: 102px;
+      top: 5px;
+      border: 2px solid var(--navy);
+    }
+
+    .timeline-content {}
+
+    .timeline-role {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .timeline-company {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-desc {
+      font-size: 0.83rem;
+      color: var(--grey-light);
+      line-height: 1.6;
+    }
+
+    /* Certifications row */
+    .certs {
+      margin-top: 40px;
+    }
+
+    .certs-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .certs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cert-badge {
+      background: var(--navy-mid);
+      border: 1px solid var(--grey-line);
+      border-radius: 4px;
+      padding: 7px 14px;
+      font-size: 0.78rem;
+      color: var(--grey-light);
+      font-weight: 600;
     }
 
     /* ============================================
-       SERVICES STRIP (below hero)
+       SERVICES SECTION (full, with pricing)
     ============================================ */
-    .services-strip {
+    .services {
       background: var(--navy-mid);
+      padding: 90px 5%;
       border-top: 1px solid var(--grey-line);
-      border-bottom: 1px solid var(--grey-line);
-      padding: 50px 5%;
-    }
-
-    .services-strip h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .services-strip .section-sub {
-      color: var(--grey-light);
-      font-size: 0.95rem;
-      margin-bottom: 36px;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
     }
 
     .service-card {
       background: var(--navy);
       border: 1px solid var(--grey-line);
-      border-radius: 8px;
-      padding: 24px 20px;
+      border-radius: 10px;
+      padding: 30px 24px;
       transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
     }
 
     .service-card:hover {
       border-color: var(--gold);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+    }
+
+    /* Featured card gets gold top border */
+    .service-card.featured {
+      border-top: 3px solid var(--gold);
     }
 
     .service-icon {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
+      font-size: 2rem;
+      margin-bottom: 16px;
       display: block;
     }
 
     .service-card h3 {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .service-card p {
-      font-size: 0.83rem;
+      font-size: 0.85rem;
       color: var(--grey-light);
-      line-height: 1.5;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
     }
 
+    /* What's included list */
+    .service-includes {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .service-includes li {
+      font-size: 0.82rem;
+      color: var(--grey-light);
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-includes li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Price tag */
+    .service-price {
+      border-top: 1px solid var(--grey-line);
+      padding-top: 16px;
+      margin-top: auto;
+    }
+
+    .price-amount {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+
+    .price-usd {
+      font-size: 0.78rem;
+      color: var(--grey-light);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Contact CTA strip */
+    .services-cta {
+      margin-top: 48px;
+      background: rgba(212,160,23,0.08);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-radius: 8px;
+      padding: 28px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1100px;
+    }
+
+    .services-cta p {
+      font-size: 0.95rem;
+      color: var(--grey-light);
+      max-width: 500px;
+    }
+
+    .services-cta strong { color: var(--white); }
+
     /* ============================================
-       FOOTER (simple placeholder)
+       FOOTER
     ============================================ */
     footer {
-      padding: 30px 5%;
+      padding: 36px 5%;
       text-align: center;
       font-size: 0.82rem;
       color: var(--grey-light);
@@ -349,77 +585,84 @@
     /* ============================================
        RESPONSIVE — MOBILE
     ============================================ */
-    @media (max-width: 700px) {
-
+    @media (max-width: 800px) {
       .nav-links { display: none; flex-direction: column; }
-      .nav-links.open { display: flex; position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--navy); padding: 20px 5%; border-bottom: 1px solid var(--grey-line); }
+      .nav-links.open {
+        display: flex;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--navy);
+        padding: 20px 5%;
+        border-bottom: 1px solid var(--grey-line);
+      }
       .nav-toggle { display: flex; }
 
       .hero { padding: 90px 5% 60px; }
-
       .hero-stats { gap: 10px; }
       .stat { min-width: 100px; padding: 10px 14px; }
-
       .hero-cta { flex-direction: column; }
       .btn-primary, .btn-secondary { text-align: center; }
+
+      /* About — stack on mobile */
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-photo { max-width: 100%; aspect-ratio: 3/2; }
+
+      /* Timeline — compress on mobile */
+      .timeline-item { grid-template-columns: 90px 1fr; gap: 12px; }
+      .timeline-item:not(:last-child)::after { left: 77px; }
+      .timeline-dot { left: 72px; }
+
+      .services-cta { flex-direction: column; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ============================================
+  <!-- ============================
        NAVIGATION
-  ============================================ -->
+  ============================= -->
   <nav>
     <div class="nav-logo">Okumu <span>Jared</span></div>
-
-    <!-- Desktop links -->
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#store">Products</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-
-    <!-- Mobile hamburger -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- ============================================
+  <!-- ============================
        HERO SECTION
-  ============================================ -->
+  ============================= -->
   <section class="hero" id="hero">
     <div class="hero-inner">
 
-      <!-- Credibility badge -->
       <div class="hero-badge">
         UNMISS · United Nations Mission in South Sudan
       </div>
 
-      <!-- Name headline -->
       <h1 class="hero-name">
         Okumu <span class="gold">Jared</span>
       </h1>
 
-      <!-- Title line -->
       <p class="hero-title">
-        Electrical Supervisor &amp; Web Developer — serving engineering firms, solar installers, generator companies &amp; NGOs.
+        Electrical Supervisor &amp; Web Developer — serving engineering firms,
+        solar installers, generator companies &amp; NGOs.
       </p>
 
-      <!-- Gold divider -->
       <div class="hero-divider"></div>
 
-      <!-- Short bio -->
       <p class="hero-summary">
-        11+ years of field experience in diesel generators, solar PV systems, HV/LV power networks and industrial electrical infrastructure. Now I help technical and engineering businesses build credible, professional websites that win clients.
+        11+ years of field experience in diesel generators, solar PV systems, HV/LV power
+        networks and industrial electrical infrastructure. Now I help technical and engineering
+        businesses build credible, professional websites that win clients.
       </p>
 
-      <!-- Stats -->
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-number">11+</span>
@@ -439,7 +682,6 @@
         </div>
       </div>
 
-      <!-- Call-to-action buttons -->
       <div class="hero-cta">
         <a href="#contact" class="btn-primary">Hire Me — Let's Talk</a>
         <a href="#services" class="btn-secondary">See My Services</a>
@@ -448,57 +690,307 @@
     </div>
   </section>
 
-  <!-- ============================================
-       SERVICES STRIP
-  ============================================ -->
-  <section class="services-strip" id="services">
-    <h2>What I Can Do For Your Business</h2>
-    <p class="section-sub">Engineering expertise meets professional web development</p>
+  <!-- ============================
+       ABOUT SECTION
+  ============================= -->
+  <section class="about" id="about">
+    <div class="about-grid">
 
-    <div class="services-grid">
+      <!-- LEFT: Photo + quick facts -->
+      <div class="about-left">
 
-      <div class="service-card">
-        <span class="service-icon">🌐</span>
-        <h3>Business Websites</h3>
-        <p>Professional websites for engineering firms, generator companies, solar installers and NGOs. From KES 15,000.</p>
+        <!-- Photo placeholder — replace src with your real photo later -->
+        <div class="about-photo">
+          <span class="photo-icon">📷</span>
+          <span>Add your professional photo here.<br>Right-click this file and edit the img tag.</span>
+        </div>
+
+        <!-- Quick facts -->
+        <div class="about-facts">
+          <div class="fact-row">
+            <div class="fact-icon">📍</div>
+            <div class="fact-text">
+              <strong>Location</strong>
+              Nairobi, Kenya · South Sudan
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon">🏢</div>
+            <div class="fact-text">
+              <strong>Current Role</strong>
+              Electrical Supervisor — UNMISS
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon">📧</div>
+            <div class="fact-text">
+              <strong>Email</strong>
+              okumujaro@gmail.com
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon">📞</div>
+            <div class="fact-text">
+              <strong>Phone / WhatsApp</strong>
+              +254 790 475 905
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon">⚡</div>
+            <div class="fact-text">
+              <strong>Licence</strong>
+              EPRA Licensed Electrician &amp; Generator Specialist
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="service-card">
-        <span class="service-icon">⚡</span>
-        <h3>Electrical Consulting</h3>
-        <p>1-hour technical advice sessions — generator sizing, solar PV design, power audits. Via Calendly. KES 2,000–5,000.</p>
-      </div>
+      <!-- RIGHT: Story + timeline + certs -->
+      <div class="about-right">
 
-      <div class="service-card">
-        <span class="service-icon">📄</span>
-        <h3>Technical PDF Guides</h3>
-        <p>Generator maintenance checklists, solar installation guides, safety audit templates. Download instantly.</p>
-      </div>
+        <p class="section-label">About Me</p>
+        <h2 class="section-heading">11 Years in the Field.<br>Now Building for the Web.</h2>
+        <div class="gold-bar"></div>
 
-      <div class="service-card">
-        <span class="service-icon">🔧</span>
-        <h3>Power Systems Design</h3>
-        <p>HV/LV distribution networks, diesel generator commissioning, hybrid solar-PV systems. International field-tested expertise.</p>
-      </div>
+        <div class="about-story">
+          <p>
+            My name is <strong>Okumu Jared</strong> — an Electrical Supervisor with over
+            <strong>11 years of hands-on field experience</strong> in power generation,
+            HV/LV electrical systems, solar PV, and industrial infrastructure.
+            I currently serve with <strong>UNMISS (United Nations Mission in South Sudan)</strong>
+            in Torit State, where I lead a team of 14 technicians maintaining mission-critical
+            power systems for UN operations.
+          </p>
+          <p>
+            I have personally commissioned <strong>fifteen 500 kVA diesel generators</strong>,
+            designed and installed a <strong>100 kW hybrid solar PV system</strong>, and supervised
+            the full electrical infrastructure for facilities across South Sudan — generators,
+            HV/LV distribution networks, air-conditioning, and cold rooms — all to international
+            EHS and QA standards.
+          </p>
+          <p>
+            I am now combining that technical authority with web development to serve
+            <strong>engineering firms, solar installers, generator companies, and NGOs</strong>
+            who need professional websites. My advantage is simple: I speak your technical language,
+            I understand your clients, and I build websites that reflect the credibility your
+            business deserves.
+          </p>
+        </div>
 
+        <!-- Experience Timeline -->
+        <p class="section-label">Experience</p>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-date">2021<br>— Present</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Field Power Technician &amp; Electrical Supervisor</div>
+              <div class="timeline-company">UNMISS / Broadband Ltd — Torit State, South Sudan</div>
+              <div class="timeline-desc">
+                Supervising 14 technicians. Commissioned 15 × 500 kVA generators,
+                100 kW hybrid solar PV system, HV/LV networks, and 10 cold room facilities
+                for UN mission operations. Full EHS and QA compliance.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2016<br>— 2021</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Electrical Technician / Generator Technician — Supervisor</div>
+              <div class="timeline-company">PZ Cussons East Africa Limited — Kenya</div>
+              <div class="timeline-desc">
+                Installed cloud-based power metering systems, automated industrial machinery,
+                commissioned 1000 kVA Caterpillar generator, solar water heating systems
+                and effluent waste treatment plant.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2015<br>— 2016</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Electrical Technician / Generator Technician — Foreman</div>
+              <div class="timeline-company">Westwood Electrical Limited — Kenya</div>
+              <div class="timeline-desc">
+                Delivered O&amp;M electrical projects, LV distribution networks, diesel generator
+                servicing and commissioning for commercial, industrial and domestic facilities.
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2014<br>— 2015</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Electrical Intern Technician</div>
+              <div class="timeline-company">Vanguard Engineering Limited — Kenya</div>
+              <div class="timeline-desc">
+                Fire detection, access control, CCTV, structured cabling, security systems
+                installation, testing and commissioning.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Certifications -->
+        <div class="certs">
+          <p class="certs-title">Licences &amp; Certifications</p>
+          <div class="certs-grid">
+            <span class="cert-badge">EPRA Electrician Licence</span>
+            <span class="cert-badge">EPRA Generator Specialist (2026)</span>
+            <span class="cert-badge">NCA Site Supervisor</span>
+            <span class="cert-badge">IET Certified Engineering Technician</span>
+            <span class="cert-badge">Electronics &amp; PLC Troubleshooting</span>
+            <span class="cert-badge">Dip. Electrical &amp; Electronics Engineering</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- ============================================
-       FOOTER
-  ============================================ -->
-  <footer>
-    <p>© 2026 Okumu Jared &nbsp;|&nbsp;
-      <a href="mailto:okumujaro@gmail.com">okumujaro@gmail.com</a> &nbsp;|&nbsp;
-      +254 790 475 905 &nbsp;|&nbsp; Nairobi, Kenya
+  <!-- ============================
+       SERVICES SECTION
+  ============================= -->
+  <section class="services" id="services">
+
+    <p class="section-label">Services &amp; Pricing</p>
+    <h2 class="section-heading">What I Can Do For Your Business</h2>
+    <div class="gold-bar"></div>
+    <p class="section-sub">
+      Engineering expertise meets professional web development.
+      Every service comes with clear pricing — no hidden costs.
     </p>
+
+    <div class="services-grid">
+
+      <!-- Service 1 -->
+      <div class="service-card featured">
+        <span class="service-icon">🌐</span>
+        <h3>Business Website Design</h3>
+        <p>
+          A professional, mobile-friendly website for your engineering firm, generator company,
+          solar installer, or NGO. Built to win clients and reflect your credibility.
+        </p>
+        <ul class="service-includes">
+          <li>Up to 5 pages (Home, About, Services, Blog, Contact)</li>
+          <li>Mobile responsive design</li>
+          <li>Contact form &amp; WhatsApp button</li>
+          <li>Hosted free on GitHub Pages</li>
+          <li>Delivered in 5–7 days</li>
+        </ul>
+        <div class="service-price">
+          <span class="price-amount">KES 15,000 – 35,000</span>
+          <span class="price-usd">approx. $115 – $270 USD</span>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <h3>Electrical Consulting Session</h3>
+        <p>
+          A focused 1-hour paid session for generator sizing, solar PV system design,
+          power audits, or troubleshooting advice — from a UN-field-tested Electrical Supervisor.
+        </p>
+        <ul class="service-includes">
+          <li>1-hour video/call session via Google Meet</li>
+          <li>Generator sizing &amp; load calculations</li>
+          <li>Solar PV system design advice</li>
+          <li>HV/LV network planning</li>
+          <li>Written summary sent after session</li>
+        </ul>
+        <div class="service-price">
+          <span class="price-amount">KES 2,000 – 5,000</span>
+          <span class="price-usd">approx. $15 – $38 USD per session</span>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <span class="service-icon">📄</span>
+        <h3>Technical PDF Guides</h3>
+        <p>
+          Downloadable checklists, templates, and maintenance guides for electrical
+          and power systems — written from real field experience, not theory.
+        </p>
+        <ul class="service-includes">
+          <li>Generator maintenance checklists</li>
+          <li>Solar PV installation guides</li>
+          <li>Electrical safety audit templates</li>
+          <li>Instant digital download</li>
+          <li>Available on Gumroad</li>
+        </ul>
+        <div class="service-price">
+          <span class="price-amount">KES 500 – 2,000</span>
+          <span class="price-usd">approx. $4 – $15 USD per guide</span>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <span class="service-icon">🔧</span>
+        <h3>Power Systems Design</h3>
+        <p>
+          Technical design and supervision for HV/LV distribution networks,
+          diesel generator commissioning, and hybrid solar-PV systems.
+          International field-tested. EHS compliant.
+        </p>
+        <ul class="service-includes">
+          <li>Generator sizing &amp; load calculations</li>
+          <li>Solar PV system design (up to 100kW+)</li>
+          <li>HV/LV distribution planning</li>
+          <li>SAP/CMMS documentation support</li>
+          <li>Remote or on-site (negotiate)</li>
+        </ul>
+        <div class="service-price">
+          <span class="price-amount">KES 20,000+</span>
+          <span class="price-usd">approx. $150+ USD — quote on request</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA strip -->
+    <div class="services-cta">
+      <p>
+        <strong>Not sure which service fits your needs?</strong><br>
+        Send me a WhatsApp message or email and I will give you honest advice —
+        no obligation. I always take a <strong>50% deposit</strong> before starting any project.
+      </p>
+      <a href="https://wa.me/254790475905" class="btn-primary" target="_blank">
+        WhatsApp Me Now
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer id="contact">
+    <p style="margin-bottom:10px; font-weight:700; font-size:1rem; color:var(--white);">
+      Ready to work together?
+    </p>
+    <p style="margin-bottom:18px;">
+      <a href="mailto:okumujaro@gmail.com">okumujaro@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://wa.me/254790475905">+254 790 475 905 (WhatsApp)</a>
+      &nbsp;·&nbsp; Nairobi, Kenya
+    </p>
+    <p>© 2026 Okumu Jared — Electrical Supervisor &amp; Web Developer</p>
   </footer>
 
-  <!-- ============================================
-       JAVASCRIPT — Mobile nav toggle only
-  ============================================ -->
+  <!-- ============================
+       JAVASCRIPT
+  ============================= -->
   <script>
-    // Toggle mobile nav open/close
+    // Mobile nav toggle
     const toggle = document.getElementById('navToggle');
     const links  = document.getElementById('navLinks');
 
@@ -506,7 +998,6 @@
       links.classList.toggle('open');
     });
 
-    // Close mobile nav when a link is clicked
     links.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => links.classList.remove('open'));
     });
