@@ -570,6 +570,236 @@
     .services-cta strong { color: var(--white); }
 
     /* ============================================
+       BLOG SECTION
+    ============================================ */
+    .blog {
+      background: var(--navy);
+      padding: 90px 5%;
+      border-top: 1px solid var(--grey-line);
+    }
+
+    /* Blog post grid — 3 columns on desktop */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1100px;
+      margin-bottom: 48px;
+    }
+
+    /* Individual blog card */
+    .blog-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--grey-line);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    /* Featured card — first post, spans full width on its row */
+    .blog-card.featured {
+      border-top: 3px solid var(--gold);
+    }
+
+    /* Coloured category banner at top of card */
+    .blog-card-banner {
+      height: 6px;
+      background: var(--gold);
+    }
+
+    .blog-card-banner.solar  { background: #27AE60; }
+    .blog-card-banner.web    { background: #2980B9; }
+    .blog-card-banner.safety { background: #E74C3C; }
+
+    /* Card body */
+    .blog-card-body { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; }
+
+    /* Category tag */
+    .blog-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .blog-tag.solar  { color: #27AE60; }
+    .blog-tag.web    { color: #2980B9; }
+    .blog-tag.safety { color: #E74C3C; }
+
+    .blog-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .blog-card p {
+      font-size: 0.83rem;
+      color: var(--grey-light);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* Card footer — date + read time */
+    .blog-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--grey-light);
+      border-top: 1px solid var(--grey-line);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .blog-read-more {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ---- FULL BLOG POST (modal/expanded view) ---- */
+    .blog-post-overlay {
+      display: none;         /* hidden by default */
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 200;
+      overflow-y: auto;
+      padding: 40px 5%;
+    }
+
+    .blog-post-overlay.open { display: block; }
+
+    .blog-post-container {
+      background: var(--navy-mid);
+      border: 1px solid var(--grey-line);
+      border-radius: 12px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 48px 60px;
+      position: relative;
+    }
+
+    /* Close button */
+    .blog-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: none;
+      border: 1px solid var(--grey-line);
+      color: var(--grey-light);
+      font-size: 1.2rem;
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .blog-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Post content styles */
+    .post-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .post-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: var(--grey-light);
+      margin-bottom: 28px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .post-divider {
+      width: 48px; height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* Post body typography */
+    .post-body { font-size: 0.97rem; color: var(--grey-light); line-height: 1.85; }
+    .post-body p  { margin-bottom: 20px; }
+    .post-body h2 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin: 32px 0 12px; }
+    .post-body h3 { font-size: 1rem; font-weight: 700; color: var(--gold); margin: 24px 0 10px; }
+    .post-body strong { color: var(--white); }
+
+    /* Numbered checklist styling */
+    .post-body ol {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .post-body ol li {
+      margin-bottom: 10px;
+      padding-left: 8px;
+      line-height: 1.7;
+    }
+
+    .post-body ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+      list-style: disc;
+    }
+
+    .post-body ul li { margin-bottom: 8px; }
+
+    /* Highlight box — key takeaway */
+    .post-highlight {
+      background: rgba(212,160,23,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    /* CTA at bottom of post */
+    .post-cta {
+      background: var(--navy);
+      border: 1px solid var(--grey-line);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .post-cta p { font-size: 0.9rem; color: var(--grey-light); margin-bottom: 16px; }
+    .post-cta strong { color: var(--white); }
+
+    /* ============================================
        FOOTER
     ============================================ */
     footer {
@@ -971,6 +1201,318 @@
   </section>
 
   <!-- ============================
+       BLOG SECTION
+  ============================= -->
+  <section class="blog" id="blog">
+
+    <p class="section-label">Blog &amp; Technical Articles</p>
+    <h2 class="section-heading">Field Knowledge. Written Down.</h2>
+    <div class="gold-bar"></div>
+    <p class="section-sub">
+      Real articles from 11+ years of hands-on electrical and power systems experience.
+      Written for engineers, facility managers, and business owners.
+    </p>
+
+    <!-- Blog cards grid -->
+    <div class="blog-grid">
+
+      <!-- POST 1 — Generator Maintenance (FEATURED / PUBLISHED) -->
+      <div class="blog-card featured" onclick="openPost('post1')">
+        <div class="blog-card-banner"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">⚡ Generators</span>
+          <h3>Generator Maintenance Checklist Kenya 2026 — 20 Point Inspection Guide</h3>
+          <p>
+            After supervising 15 × 500 kVA diesel generators for UNMISS in South Sudan,
+            I have learned exactly what kills a generator. Here is the complete
+            maintenance checklist every facility manager in Kenya needs.
+          </p>
+          <div class="blog-card-meta">
+            <span>June 25, 2026 · 6 min read</span>
+            <span class="blog-read-more">Read article →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 2 — Solar PV (COMING SOON) -->
+      <div class="blog-card" onclick="openPost('post2')">
+        <div class="blog-card-banner solar"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag solar">☀️ Solar PV</span>
+          <h3>How to Size a Solar PV System for Your Business in Kenya</h3>
+          <p>
+            Most businesses in Kenya overpay for solar because they size it wrong.
+            This guide walks you through the exact calculation I use on UN mission sites —
+            simplified for any business owner.
+          </p>
+          <div class="blog-card-meta">
+            <span>Coming — Week 2</span>
+            <span class="blog-read-more">Coming soon →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 3 — Web tips (COMING SOON) -->
+      <div class="blog-card" onclick="openPost('post3')">
+        <div class="blog-card-banner web"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag web">🌐 Web Development</span>
+          <h3>Why Every Engineering Firm in Nairobi Needs a Professional Website in 2026</h3>
+          <p>
+            Most engineering firms in Kenya have no website — or a broken one.
+            Here is what it is costing them, and how a simple professional site
+            can double their enquiries within 90 days.
+          </p>
+          <div class="blog-card-meta">
+            <span>Coming — Week 2</span>
+            <span class="blog-read-more">Coming soon →</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end blog-grid -->
+
+  </section>
+
+  <!-- ============================
+       FULL BLOG POST — POST 1
+       (Opens as overlay when card is clicked)
+  ============================= -->
+  <div class="blog-post-overlay" id="post1">
+    <div class="blog-post-container">
+
+      <button class="blog-close" onclick="closePost('post1')" aria-label="Close article">✕</button>
+
+      <span class="post-tag">⚡ Generators · Field Guide</span>
+
+      <h1 class="post-title">
+        Generator Maintenance Checklist Kenya 2026 —
+        20 Point Inspection Guide
+      </h1>
+
+      <div class="post-meta">
+        <span>By Okumu Jared — Electrical Supervisor, UNMISS</span>
+        <span>June 25, 2026</span>
+        <span>6 min read</span>
+      </div>
+
+      <div class="post-divider"></div>
+
+      <div class="post-body">
+
+        <p>
+          In my 11 years as an Electrical Supervisor — including my current role with
+          <strong>UNMISS (United Nations Mission in South Sudan)</strong> where I oversee
+          fifteen 500 kVA diesel generators — I have seen generators fail in almost
+          every possible way. And in nearly every case, the failure was preventable.
+        </p>
+
+        <p>
+          Most generator breakdowns in Kenya come down to one thing:
+          <strong>no structured maintenance checklist.</strong> Technicians do what they
+          remember. They miss what they forget. A KES 200,000 engine overhaul happens
+          because someone skipped a KES 500 oil change.
+        </p>
+
+        <p>
+          This guide gives you the exact 20-point inspection checklist I use on
+          UN mission-critical generator systems. Use it monthly and your generator
+          will run reliably for years.
+        </p>
+
+        <div class="post-highlight">
+          💡 <strong>Field rule:</strong> A generator that is never serviced will fail
+          at the worst possible moment — during a blackout, during surgery, during a
+          critical IT backup. Maintenance is not optional. It is insurance.
+        </div>
+
+        <h2>Why Generator Maintenance Fails in Kenya</h2>
+
+        <p>
+          Before the checklist, understand the three reasons maintenance fails
+          in most Kenyan facilities:
+        </p>
+
+        <ol>
+          <li>
+            <strong>No written schedule</strong> — maintenance depends on one
+            person's memory. When that person leaves, the knowledge goes with them.
+          </li>
+          <li>
+            <strong>Reactive not preventive</strong> — teams only act when something
+            breaks. By then, minor damage has become major damage.
+          </li>
+          <li>
+            <strong>No documentation</strong> — without records, you cannot track
+            patterns, predict failures, or prove compliance to auditors.
+          </li>
+        </ol>
+
+        <p>
+          A written checklist solves all three problems. It creates a system that
+          works regardless of who is on duty.
+        </p>
+
+        <h2>The 20-Point Generator Maintenance Checklist</h2>
+        <p>Run this inspection every month. Document every result.</p>
+
+        <h3>🔋 Engine Checks (Daily / Weekly)</h3>
+        <ol>
+          <li><strong>Engine oil level</strong> — check dipstick, top up if below minimum mark. Use manufacturer-specified grade.</li>
+          <li><strong>Coolant level</strong> — check overflow tank and radiator. Never open a hot radiator cap.</li>
+          <li><strong>Fuel level and fuel quality</strong> — check for water contamination and algae growth especially in tanks unused for weeks.</li>
+          <li><strong>Air filter condition</strong> — inspect for dust blockage. A blocked air filter starves the engine of oxygen and wastes fuel.</li>
+          <li><strong>Battery voltage</strong> — should read 12.4V minimum at rest. A weak battery causes failure to start when you need it most.</li>
+          <li><strong>Battery terminals</strong> — check for corrosion, tighten connections, apply terminal grease.</li>
+        </ol>
+
+        <h3>⚡ Electrical Checks (Monthly)</h3>
+        <ol start="7">
+          <li><strong>Output voltage</strong> — measure at the alternator terminals. Should be within ±5% of rated voltage (e.g. 415V ± 20V for 3-phase).</li>
+          <li><strong>Output frequency</strong> — should read 50Hz ±1Hz. Frequency drift indicates governor problems.</li>
+          <li><strong>Earth/ground connection</strong> — test continuity from generator frame to earth rod. A missing earth is a fatal electrocution risk.</li>
+          <li><strong>Circuit breaker condition</strong> — operate each breaker manually. Check for heat discolouration which indicates overload history.</li>
+          <li><strong>ATS (Automatic Transfer Switch)</strong> — test automatic changeover from mains to generator and back. Time the transfer — should be under 10 seconds.</li>
+          <li><strong>Control panel alarms</strong> — test each alarm: high temperature, low oil pressure, overcrank. These are your early warning system.</li>
+        </ol>
+
+        <h3>🔧 Mechanical Checks (Monthly)</h3>
+        <ol start="13">
+          <li><strong>Belt tension and condition</strong> — fan belt and alternator belt should have 10–15mm deflection. Cracked or glazed belts must be replaced immediately.</li>
+          <li><strong>Hoses and clamps</strong> — inspect all coolant and fuel hoses for cracks, soft spots, or leaks. Tighten all clamps.</li>
+          <li><strong>Exhaust system</strong> — check for leaks at joints and manifold. Carbon streaks indicate a leak. Exhaust gases in an enclosed space are fatal.</li>
+          <li><strong>Mounting bolts and anti-vibration mounts</strong> — loose mounts cause cracks in fuel and coolant lines over time.</li>
+        </ol>
+
+        <h3>📋 Load and Performance Checks (Monthly)</h3>
+        <ol start="17">
+          <li><strong>Load test</strong> — run generator at 75–100% load for 30 minutes minimum. A generator that only ever runs on light load develops wet stacking — unburned fuel deposits in the exhaust.</li>
+          <li><strong>Oil pressure at running speed</strong> — read the oil pressure gauge at normal operating temperature. Compare to manufacturer specification.</li>
+          <li><strong>Operating temperature</strong> — coolant temperature should stabilise within the normal range. Overheating means a blocked radiator, low coolant, or a failing thermostat.</li>
+          <li><strong>Record all readings in a maintenance logbook</strong> — date, readings, technician name, any defects found and actions taken. This logbook is your compliance record and your diagnostic history.</li>
+        </ol>
+
+        <div class="post-highlight">
+          📋 <strong>Pro tip from the field:</strong> On UN mission sites we log every
+          generator reading in SAP/CMMS. But even a simple paper logbook or Excel sheet
+          works. What matters is consistency — same checks, same time, every month,
+          documented every time.
+        </div>
+
+        <h2>When to Call a Professional</h2>
+
+        <p>Some issues require a qualified Electrical Supervisor or engineer:</p>
+
+        <ul>
+          <li>Voltage fluctuating more than ±10% under load</li>
+          <li>Generator hunting (engine speed surging up and down)</li>
+          <li>Black or white smoke from exhaust under normal load</li>
+          <li>Any alarm that cannot be reset after correcting the obvious cause</li>
+          <li>Unusual knocking or rattling from the engine</li>
+          <li>ATS failing to transfer automatically</li>
+        </ul>
+
+        <p>
+          Do not attempt alternator repairs or governor adjustments without the
+          correct training and test equipment. The cost of a qualified technician
+          is always less than the cost of a damaged alternator winding.
+        </p>
+
+        <h2>Summary</h2>
+
+        <p>
+          A diesel generator is a significant asset — often worth KES 500,000 to
+          KES 5,000,000 or more. Protecting that asset costs almost nothing compared
+          to replacing it. Twenty checks, once a month, documented every time.
+          That is the difference between a generator that lasts 20 years and one
+          that fails at 5.
+        </p>
+
+        <p>
+          If you would like a <strong>printable PDF version of this checklist</strong>
+          with signature columns, a monthly log table, and defect tracking — I have
+          created one based on the exact templates I use on UNMISS mission sites.
+        </p>
+
+        <!-- Post CTA -->
+        <div class="post-cta">
+          <p>
+            <strong>Want the full printable PDF checklist?</strong><br>
+            Get the complete 20-point Generator Maintenance Checklist with monthly
+            log sheets — based on real UN mission site templates.
+            Available on Gumroad for <strong>KES 500</strong>.
+          </p>
+          <a href="https://wa.me/254790475905?text=Hi%20Jared%2C%20I%20want%20the%20Generator%20Maintenance%20PDF%20checklist"
+             class="btn-primary" target="_blank" style="display:inline-block; margin-top:4px;">
+            Get the PDF — KES 500
+          </a>
+          <p style="margin-top:16px; font-size:0.8rem;">
+            Or book a 1-hour electrical consulting session:
+            <a href="https://wa.me/254790475905" style="color:var(--gold);">
+              WhatsApp +254 790 475 905
+            </a>
+          </p>
+        </div>
+
+      </div><!-- end post-body -->
+    </div><!-- end blog-post-container -->
+  </div><!-- end blog-post-overlay post1 -->
+
+  <!-- POST 2 overlay — placeholder -->
+  <div class="blog-post-overlay" id="post2">
+    <div class="blog-post-container">
+      <button class="blog-close" onclick="closePost('post2')">✕</button>
+      <span class="post-tag">☀️ Solar PV</span>
+      <h1 class="post-title">How to Size a Solar PV System for Your Business in Kenya</h1>
+      <div class="post-divider"></div>
+      <div class="post-body">
+        <p style="color:var(--gold); font-weight:600;">
+          📝 This article is being written. Check back next week.
+        </p>
+        <p>
+          In the meantime, if you need solar PV sizing advice urgently,
+          book a 1-hour consulting session with me directly.
+        </p>
+        <div class="post-cta">
+          <p><strong>Need solar PV advice now?</strong><br>
+          Book a 1-hour consulting session — KES 2,000.</p>
+          <a href="https://wa.me/254790475905" class="btn-primary"
+             target="_blank" style="display:inline-block; margin-top:4px;">
+            WhatsApp Me Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 3 overlay — placeholder -->
+  <div class="blog-post-overlay" id="post3">
+    <div class="blog-post-container">
+      <button class="blog-close" onclick="closePost('post3')">✕</button>
+      <span class="post-tag">🌐 Web Development</span>
+      <h1 class="post-title">Why Every Engineering Firm in Nairobi Needs a Professional Website in 2026</h1>
+      <div class="post-divider"></div>
+      <div class="post-body">
+        <p style="color:var(--gold); font-weight:600;">
+          📝 This article is being written. Check back next week.
+        </p>
+        <p>
+          If your engineering firm needs a professional website now,
+          contact me directly for a free quote.
+        </p>
+        <div class="post-cta">
+          <p><strong>Need a professional website for your business?</strong><br>
+          From KES 15,000. Delivered in 5–7 days.</p>
+          <a href="https://wa.me/254790475905" class="btn-primary"
+             target="_blank" style="display:inline-block; margin-top:4px;">
+            Get a Free Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
        FOOTER
   ============================= -->
   <footer id="contact">
@@ -990,7 +1532,38 @@
        JAVASCRIPT
   ============================= -->
   <script>
-    // Mobile nav toggle
+    // ---- Blog post open / close ----
+    function openPost(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden'; // prevent background scroll
+    }
+
+    function closePost(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close overlay when clicking outside the post container
+    document.querySelectorAll('.blog-post-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.blog-post-overlay.open').forEach(o => {
+          o.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    // ---- Mobile nav toggle ----
     const toggle = document.getElementById('navToggle');
     const links  = document.getElementById('navLinks');
 
